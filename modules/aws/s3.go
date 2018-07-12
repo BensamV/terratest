@@ -197,7 +197,7 @@ func EmptyS3BucketE(t *testing.T, region string, name string) error {
 
 		if *(*bucketObjects).IsTruncated { //if there are more objects in the bucket, IsTruncated = true
 			params.Marker = (*deleteParams).Delete.Objects[len((*deleteParams).Delete.Objects)-1].Key
-			logger.Logf(t,"Requesting next batch | %s", *(params.Marker))
+			logger.Logf(t, "Requesting next batch | %s", *(params.Marker))
 		} else { //if all objects in the bucket have been cleaned up.
 			break
 		}
